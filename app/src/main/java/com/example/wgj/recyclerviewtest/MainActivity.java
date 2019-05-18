@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -21,8 +22,11 @@ public class MainActivity extends AppCompatActivity {
         initFruits();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         // 设置线性布局
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        // LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        // layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+
+        // 设置StaggeredGrid
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         // 初始化适配器
         FruitAdapter adapter = new FruitAdapter(fruitList);
