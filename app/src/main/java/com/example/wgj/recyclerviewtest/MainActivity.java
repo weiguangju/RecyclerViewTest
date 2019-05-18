@@ -2,6 +2,7 @@ package com.example.wgj.recyclerviewtest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -26,7 +27,11 @@ public class MainActivity extends AppCompatActivity {
         // layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
         // 设置StaggeredGrid
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        // StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+
+        //设置GridLayout
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false);
+
         recyclerView.setLayoutManager(layoutManager);
         // 初始化适配器
         FruitAdapter adapter = new FruitAdapter(fruitList);
@@ -34,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFruits() {
-        for (int i=0; i<2; i++) {
+        for (int i=0; i<3; i++) {
             Fruit apple = new Fruit("Apple", R.drawable.apple);
             fruitList.add(apple);
             Fruit banana = new Fruit("Banana", R.drawable.banana);
